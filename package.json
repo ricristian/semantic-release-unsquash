@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A tiny wrapper for commit-analyzer and release-notes-generator which works with squashed MRs",
   "main": "src/index.js",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ricristian/semantic-release-unsquash.git"
