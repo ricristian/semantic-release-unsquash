@@ -1,4 +1,5 @@
-const getUnsquashedCommits = (context) => {
+// src/get-unsquashed-commits.js (or src/get-unsquashed-commits.mjs)
+export const getUnsquashedCommits = (context) => {
   const { commits } = context;
 
   return commits.reduce((acc, commit) => {
@@ -22,5 +23,3 @@ const getUnsquashedCommits = (context) => {
     ];
   }, []);
 };
-
-module.exports = { getUnsquashedCommits };
