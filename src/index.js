@@ -1,13 +1,9 @@
-const {
-  analyzeCommits: originalAnalyzeCommits,
-} = require('@semantic-release/commit-analyzer');
-const {
-  generateNotes: originalGenerateNotes,
-} = require('@semantic-release/release-notes-generator');
+// src/index.js (or src/index.mjs)
+import { analyzeCommits as originalAnalyzeCommits } from '@semantic-release/commit-analyzer';
+import { generateNotes as originalGenerateNotes } from '@semantic-release/release-notes-generator';
+import { getUnsquashedCommits } from './get-unsquashed-commits.js';
 
-const { getUnsquashedCommits } = require('./get-unsquashed-commits');
-
-const analyzeCommits = async (pluginConfig, context) => {
+export const analyzeCommits = async (pluginConfig, context) => {
   const { commitAnalyzerConfig } = pluginConfig || {};
   const commits = getUnsquashedCommits(context);
 
@@ -17,7 +13,7 @@ const analyzeCommits = async (pluginConfig, context) => {
   });
 };
 
-const generateNotes = async (pluginConfig, context) => {
+export const generateNotes = async (pluginConfig, context) => {
   const { notesGeneratorConfig } = pluginConfig || {};
   const commits = getUnsquashedCommits(context);
 
@@ -26,5 +22,3 @@ const generateNotes = async (pluginConfig, context) => {
     commits,
   });
 };
-
-module.exports = { analyzeCommits, generateNotes };
